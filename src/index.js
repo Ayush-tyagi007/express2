@@ -95,16 +95,16 @@ app.put("/user/delete", validator, async (req, res) => {
     res.send(er);
   }
 });
-app.get("/user/list/:page", async (req, res) => {
-  try {
-    const limitNumber = 10;
-    const skipNumber = (req.params.page - 1) * 10;
-    const users = await User.find({}).limit(limitNumber).skip(skipNumber);
-    res.send(users);
-  } catch (er) {
-    res.send(er);
-  }
-});
+// app.get("/user/list/:page", async (req, res) => {
+//   try {
+//     const limitNumber = 10;
+//     const skipNumber = (req.params.page - 1) * 10;
+//     const users = await User.find({}).limit(limitNumber).skip(skipNumber);
+//     res.send(users);
+//   } catch (er) {
+//     res.send(er);
+//   }
+// });
 app.post("/user/address", expiryValidator, async (req, res) => {
   try {
     token = req.tokenUser;

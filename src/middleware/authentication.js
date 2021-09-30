@@ -30,17 +30,17 @@ async function validator(req, res, next) {
     res.send(err);
   }
 }
-async function expiryValidator(req, res, next) {
-  try {
-    const tokenUser = await access_token.findOne({ token: req.headers.access });
-    if (tokenUser) {
-      req.tokenUser = tokenUser;
-      next();
-    } else {
-      res.send("token not exists");
-    }
-  } catch (er) {
-    res.send(er);
-  }
-}
+// async function expiryValidator(req, res, next) {
+//   try {
+//     const tokenUser = await access_token.findOne({ token: req.headers.access });
+//     if (tokenUser) {
+//       req.tokenUser = tokenUser;
+//       next();
+//     } else {
+//       res.send("token not exists");
+//     }
+//   } catch (er) {
+//     res.send(er);
+//   }
+// }
 module.exports = { auth, validator, expiryValidator };
